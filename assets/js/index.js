@@ -20,21 +20,12 @@ function getUserInfo() {
         method: 'get',
         url: '/my/userinfo',
         success: function(res) {
-                if (res.status !== 0) {
-                    return layui.layer.msg('获取用户信息失败！')
-                }
-                // 调用renderAvatar函数，获取用户信息渲染头像
-                renderAvatar(res.data)
+            if (res.status !== 0) {
+                return layui.layer.msg('获取用户信息失败！')
             }
-            // 无论成功或失败，最终都会调用complete回调函数
-            // complete: function(res) {
-            //     if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
-            //         // 强制清空token
-            //         localStorage.removeItem('token')
-            //             // 强制跳转到登录页面
-            //         location.href = '/login.html'
-            //     }
-            // }
+            // 调用renderAvatar函数，获取用户信息渲染头像
+            renderAvatar(res.data)
+        }
     })
 }
 // 渲染用户的头像
